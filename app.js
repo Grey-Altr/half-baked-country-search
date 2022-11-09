@@ -31,16 +31,18 @@ async function findCountries(continent) {
     const response = await getCountries(continent);
     // Slice C: add continent argument to getCountries function call
     // console log the response object to see all of the nested information returned
+    console.log(response);
     // Slice A: set the countries state to the response.data
     countries = response.data;
     // Slice A: call displayCountries function;
-    displayContinentOptions();
+    displayCountries();
 }
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(searchForm);
     // Slice C: Call findCountries with continent from formData
+    findCountries(formData.get('continent'));
 });
 
 /* Display Functions */
